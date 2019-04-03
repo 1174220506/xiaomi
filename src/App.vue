@@ -1,10 +1,16 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    
+      <router-view/>
+    
+    
+    <div class="tabs row tac">
+      <router-link  class="col"  to="/home">首页</router-link>
+      <router-link  class="col" to="/home">分类</router-link>
+      <router-link  class="col" to="/about">购物车</router-link>
+      <router-link  class="col" to="/about">我的</router-link>
+
     </div>
-    <router-view/>
   </div>
 </template>
 
@@ -15,7 +21,7 @@
 @primary:#ff6700;
 
 // 文字颜色
-@text-color:#999999;
+@tcolor:#999999;
 
 // 背景颜色
 @bg-color:#f2f2f2;
@@ -29,9 +35,10 @@ body{
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
   font-size: @f-size;
   background-color: #fff;
+  color:@tcolor;
 }
 /*********** 栅格系统***********/
-.row{ display: flex}
+.row{ display: flex; width:100%; padding: 8px;}
 .row-center{ align-items: center;}
 .row-right{ align-items: flex-end}
 .row-left{ align-items: flex-start}
@@ -61,4 +68,50 @@ body{
       right:0;
       bottom:0;
       }
+/*********** 模  块 ***********/  
+.tabs{ 
+  .pf;
+  height:49px;
+  bottom:0;
+  background-color: #fff;
+  }
+.content{
+  .full;
+  background-color: @bg-color;
+}
+
+.has-tabs{
+  bottom: 49px;
+ 
+}
+.has-header{
+  top: 44px;
+}
+.has-sub{
+ top: 88px;
+}
+
+.bar-header{
+  .pf;
+  height: 44px;
+ 
+  top:0;
+  left:0;
+  z-index: 100;
+}
+.sub-header{
+  .bar-header;
+  top:44px;
+
+}
+/*********** 文字对齐 ***********/  
+.tac{ text-align: center;}
+.tar{ text-align: right;}
+/*********** 默认控件 ***********/  
+input[type=text]{
+  border:none;
+  display: block;
+  width: 100%;
+  line-height: 28px;
+}
 </style>
